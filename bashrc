@@ -1,0 +1,65 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+TERM='rxvt-unicode'
+COLORTERM='rxvt-unicode-256color'
+
+PS1='[\u@\h \W]\$ '
+
+fortune -o | cowsay -f dragon
+source /usr/share/nvm/init-nvm.sh
+
+# Alias'
+alias ls='ls --color=auto'
+alias fuck312='cd /home/jake/Documents/ee312/sp2016/chase/students/jdk2595'
+alias dup='urxvt &'
+alias debugLaunchpad='sudo openocd --file /usr/share/openocd/scripts/board/ek-tm4c123gxl.cfg'
+alias ee445LLab='cd /home/jake/Documents/ee445l/EmbedDesignLab/'
+alias fuck422='cd /home/jake/Documents/ee422c/'
+alias pendrive='sudo mount /dev/sdb1 /mnt/usbstick/'
+
+# Convenience functions
+
+# Extracts various files
+extract() {
+		if [ -f $1 ] ; then
+			case $1 in 
+				*.tar.bz2) tar xjf $1	;;
+				*.tar.gz)	tar  xzf $1	;;
+				*.bz2)		tar bunzip2 $1	;;
+				*.rar)		rar x $1	;;
+				*.gz)		gunzip $1	;;
+				*.tar)		tar xf $1	;;
+				*.tbz2)		tar xjf $1	;;
+				*.tgz)		tar xzf $1	;;
+				*.zip)		unzip  $1	;;
+				*.Z)		uncompress $1	;;
+				*.7z)		7z x $1		;;
+				*)			echo "'$1' cannot be extracted via extract()."	;;
+			esac
+		else
+			echo  "'$1' is not a valid file"
+		fi
+}
+
+# Move and  go
+mvg(){
+	if [ -d "$2" ] ; then
+		mv $1 $2 && cd $2
+	else
+		mv $1 $2
+	fi
+}
+
+# Copy and go
+cpg(){
+	if [ -d "$2" ] ; then
+		cp $1 $2 && cd $2
+	else
+		cp $1 $2
+	fi
+}
