@@ -10,7 +10,9 @@ COLORTERM='rxvt-unicode-256color'
 
 PS1='[\u@\h \W]\$ '
 
+# Little fun script to give a innapropriate dragon when you open up a terminal
 fortune -o | cowsay -f dragon
+
 source /usr/share/nvm/init-nvm.sh
 
 # Alias'

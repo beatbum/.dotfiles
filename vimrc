@@ -11,6 +11,7 @@ Plugin 'scrooloose/nerdtree'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 call vundle#end()            
 filetype plugin indent on    
+"Makes everything prettier
 set t_Co=256
 
 syntax on  "Enables syntax highlighting for programming languages
@@ -59,7 +60,7 @@ colorscheme elflord  "Changes the color scheme. Change this to your liking. Look
 
 set clipboard+=unnamed
 
-set splitbelow
-set splitright
+set splitbelow	"Forces vertical splits to appear to the left
+set splitright	"Forces horizontal splits to appear to the right
 set wildmenu
-set laststatus=2
+set laststatus=2 "Allows powerline to function
