@@ -24,6 +24,7 @@ set tabstop=4  "How much space Vim gives to a tab
 set number  "Enables line numbering
 set smarttab  "Improves tabbing
 set shiftwidth=4  "Assists code formatting
+set expandtab
 
 "PEP8 for python files"
 au BufNewFile,BufRead *.py
@@ -58,7 +59,7 @@ let ayucolor="dark"
 
 colorscheme elflord  "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim61/colors/ for options.
 
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 set splitbelow	"Forces vertical splits to appear to the left
 set splitright	"Forces horizontal splits to appear to the right

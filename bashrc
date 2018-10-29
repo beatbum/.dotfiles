@@ -32,15 +32,13 @@ PS1='[\u@\h \W]\$ '
 fortune -o | cowsay -f dragon
 
 source /usr/share/nvm/init-nvm.sh
+LD_PRELOAD='./libcxxrt.so:/usr/$LIB/libstdc++.so.6' 
 
 # Alias'
 alias ls='ls --color=auto'
-alias fuck312='cd /home/jake/Documents/ee312/sp2016/chase/students/jdk2595'
 alias dup='urxvt &'
 alias debugLaunchpad='sudo openocd --file /usr/share/openocd/scripts/board/ek-tm4c123gxl.cfg'
-alias ee445LLab='cd /home/jake/Documents/ee445l/EmbedDesignLab/'
-alias fuck422='cd /home/jake/Documents/ee422c/'
-alias pendrive='sudo mount /dev/sdb1 /mnt/usbstick/'
+alias pendrive='sudo mount /dev/sdb /mnt/usbstick/'
 
 # Convenience functions
 
@@ -84,6 +82,3 @@ cpg(){
 	fi
 }
 
-# Put pintos in PATH
-source /home/jake/Documents/ee461s/labs/lab2/OSF17project-team-sudo-rm-rf/.PINTOS_PATH
-alias pintos-gdb='GDBMACROS=/home/jake/Documents/ee461s/labs/lab2/OSF17project-team-sudo-rm-rf/misc/gdb-macros pintos-gdb'
