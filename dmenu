@@ -1,1 +1,16 @@
-dmenu
+#!/bin/sh
+# Install as /usr/local/bin/dmenu
+
+function offset {
+    # Usage: offset WIDTH NUM_LINES
+    res=$(xrandr | grep 'primary' | cut -f4 -d' ' | cut -f1 -d'+')
+    xoff=$(( ( $(echo $res | cut -f1 -d'x') - $1 ) / 2 ))
+    yoff=$(( ( $(echo $res | cut -f2 -d'x') - ( 20 * $2 )) / 2 ))
+    echo "-x $xoff -y $yoff"
+}
+
+width=500; lines=10
+systemctl --user --quiet is-active compton && dim="-dim .7"
+/usr/bin/dmenu "$@" -i $dim -fn "Inconsolata-12" -s 0 \
+    -nb "#d8941a" -nf "#ffffff" -sb "#f3d681" -sf "#ffffff" \
+    $(offset $width $lines) -w $width -l $lines <&0
